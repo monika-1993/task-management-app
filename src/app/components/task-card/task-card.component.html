@@ -1,0 +1,17 @@
+<mat-card style="background-color: lightgray" mat-theme-watch>
+  <mat-card-content>
+    <span>
+      <h4>{{task.title}}</h4>
+      <mat-chip-list>
+        <mat-chip style="background-color: #999999">
+          <mat-select [(ngModel)]=task.status (ngModelChange)="onChangeStatus()">
+            <mat-option *ngFor="let status of statuses" [value]="status.code">
+              {{status.statusName}}
+            </mat-option>
+          </mat-select>
+        </mat-chip>
+      </mat-chip-list>
+    </span>
+    <p>{{task.description}}</p>
+  </mat-card-content>
+</mat-card>
