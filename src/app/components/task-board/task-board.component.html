@@ -1,4 +1,4 @@
-<mat-grid-list cols="{{users.length+1}}" dnd-list="list">
+<mat-grid-list cols="{{users?.length+1}} || 1" dnd-list="list">
   <mat-grid-tile *ngFor="let user of users" item-height="">
     <app-user-task-list [user]="user"></app-user-task-list>
   </mat-grid-tile>

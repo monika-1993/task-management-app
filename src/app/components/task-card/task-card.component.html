@@ -1,4 +1,4 @@
-<mat-card style="background-color: lightgray" mat-theme-watch>
+<mat-card style="background-color: lightgray" mat-theme-watch [dragDirective]='item' [dragHightlight]="'highlight'" (startDrag)="startDrag()">
   <mat-card-content>
     <span>
       <h4>{{task.title}}</h4>

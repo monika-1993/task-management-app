@@ -2,8 +2,11 @@
   <app-user-name-card [userName]="user.name"></app-user-name-card>
 </div>
 <div>
-  <ul>
-    <li>
+  <ul dropDirective (dropEvent)="addDropItem()" 
+  (dropEventMouse)="dropEventMouse($event)"
+   class="droppable" [dropHighlight]="'highlight'"
+   (dragenterEvent)="dragEnter($event)">
+    <li >
       <app-task-card *ngFor="let task of user.tasks" [task]="task"></app-task-card>
     </li>
     <li>

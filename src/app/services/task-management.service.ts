@@ -1,4 +1,6 @@
+import { element } from 'protractor';
 import { Injectable } from '@angular/core';
+
 
 import { Task, User, Status } from './../shared/types';
 
@@ -55,15 +57,19 @@ const tasks: Task[] = [
 @Injectable()
 export class TaskManagementService {
 
+  public draggedTask: number;
+  public droppedUserId: number;
+  private users: User[] = users;
+
   constructor() { }
 
   public getAllUsers = () => {
-    return users;
+    return this.users;
   }
 
   public addUser = (user: User) => {
-    users.push(user);
-    return users;
+    this.users.push(user);
+    return this.users;
   }
 
   public getAllTasks = () => {
@@ -76,15 +82,31 @@ export class TaskManagementService {
     console.log(tasks, 'service');
   }
 
-  public getUsersWithTasks = () => {
-    console.log(users, tasks, 'service');
-    users.forEach(user => user.tasks = tasks.filter(t => t.userAssigned === user.id));
-    return users;
+  public getUsersWithTasks = (): User[] => {
+    console.log(this.users, tasks, 'service');
+    this.users.forEach(element => element.tasks = tasks.filter(t => t.userAssigned === element.id));
+    return this.users;
   }
 
   public changeTaskStatus = (taskId: number, status: Status) => {
     const taskIndex = tasks.indexOf(tasks.find(t => t.id === taskId));
     tasks[taskIndex].status = status;
+  }
+
+  private changeTaskUserAssigned = (taskId: number, userId: number) => {
+    const taskIndex = tasks.indexOf(tasks.find(t => t.id === taskId));
+    tasks[taskIndex].userAssigned = userId;
+    this.users = this.getUsersWithTasks();
+  }
+
+  public onDragTask = (taskId: number) => {
+    this.draggedTask = taskId;
+  }
+
+  public onDropTask = (userId: number) => {
+    this.droppedUserId = userId;
+    this.changeTaskUserAssigned(this.draggedTask, userId);
+    console.log(tasks, this.users, 'tasks');
   }
 
 

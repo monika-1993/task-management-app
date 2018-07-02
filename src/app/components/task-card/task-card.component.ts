@@ -24,4 +24,8 @@ export class TaskCardComponent implements OnInit {
     this.taskService.changeTaskStatus(this.task.id, this.task.status);
   }
 
+  public startDrag() {
+    this.taskService.onDragTask(this.task.id);
+  }
+
 }

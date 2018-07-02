@@ -13,7 +13,7 @@ import { DialogCreateTaskComponent } from '../dialog-create-task/dialog-create-t
 export class UserTaskListComponent implements OnInit {
   @Input() public user: User;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public taskService: TaskManagementService) { }
 
   ngOnInit() {
   }
@@ -21,8 +21,20 @@ export class UserTaskListComponent implements OnInit {
   public openDialog(userId: number): void {
     const dialogRef = this.dialog.open(DialogCreateTaskComponent, {
       width: '250px',
-      data: {userId}
+      data: { userId }
     });
+  }
+
+  public addDropItem() {
+    this.taskService.onDropTask(this.user.id);
+  }
+
+  public dropEventMouse(e) {
+    // console.log(e, 'dropEventMouse');
+  }
+
+  public dragEnter(e) {
+    // console.log(e, 'dragEnter');
   }
 
 }
