@@ -10,7 +10,6 @@ export class UserNameCardComponent {
   @Input() public canAddUser: boolean;
 
   public onAdd() {
-    console.log('add user');
   }
 }
 

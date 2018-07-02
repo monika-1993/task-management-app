@@ -32,12 +32,10 @@ export class DialogCreateTaskComponent implements OnInit {
     // this.task.userAssigned = this.data.userId;
     this.taskService.addTask(this.task);
     this.onClose();
-    console.log(this.taskService.getUsersWithTasks());
   }
 
   ngOnInit() {
     this.statuses = statusList();
-    console.log(this.statuses, 'status');
   }
 
 }

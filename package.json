@@ -23,8 +23,6 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "angular-drag-and-drop-lists": "^2.1.0",
-    "angular-drag-drop": "^3.2.0",
     "angular4-drag-drop": "^1.1.2",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",

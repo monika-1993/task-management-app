@@ -29,12 +29,4 @@ export class UserTaskListComponent implements OnInit {
     this.taskService.onDropTask(this.user.id);
   }
 
-  public dropEventMouse(e) {
-    // console.log(e, 'dropEventMouse');
-  }
-
-  public dragEnter(e) {
-    // console.log(e, 'dragEnter');
-  }
-
 }

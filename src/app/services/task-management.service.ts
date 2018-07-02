@@ -79,11 +79,9 @@ export class TaskManagementService {
   public addTask = (task: Task) => {
     task.id = Math.floor(Math.random() * 1000);
     tasks.push(task);
-    console.log(tasks, 'service');
   }
 
   public getUsersWithTasks = (): User[] => {
-    console.log(this.users, tasks, 'service');
     this.users.forEach(element => element.tasks = tasks.filter(t => t.userAssigned === element.id));
     return this.users;
   }
@@ -96,7 +94,7 @@ export class TaskManagementService {
   private changeTaskUserAssigned = (taskId: number, userId: number) => {
     const taskIndex = tasks.indexOf(tasks.find(t => t.id === taskId));
     tasks[taskIndex].userAssigned = userId;
-    this.users = this.getUsersWithTasks();
+    this.getUsersWithTasks();
   }
 
   public onDragTask = (taskId: number) => {
@@ -106,7 +104,6 @@ export class TaskManagementService {
   public onDropTask = (userId: number) => {
     this.droppedUserId = userId;
     this.changeTaskUserAssigned(this.draggedTask, userId);
-    console.log(tasks, this.users, 'tasks');
   }
 
 
