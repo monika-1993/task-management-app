@@ -1,9 +1,7 @@
-import { User } from './../../models/users';
 import { Component, OnInit } from '@angular/core';
 
 import { TaskManagementService } from './../../services/task-management.service';
-
-
+import { User } from '../../shared/types';
 
 @Component({
   selector: 'app-task-board',

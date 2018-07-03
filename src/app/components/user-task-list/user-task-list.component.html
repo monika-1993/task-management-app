@@ -1,13 +1,15 @@
-<div >
-  <app-user-name-card style="text-align:center" [userName]="user.name"></app-user-name-card>
-</div>
-<div>
-  <ul dropDirective (dropEvent)="addDropItem()" class="droppable">
-    <li>
-      <app-task-card *ngFor="let task of user.tasks" [task]="task"></app-task-card>
-    </li>
-    <li>
-      <mat-card (click)="openDialog(user.id)">Create task</mat-card>
-    </li>
-  </ul>
+<div class="user-list">
+  <div>
+    <app-user-name-card style="text-align:center" [userName]="user.name"></app-user-name-card>
+  </div>
+  <div>
+    <ul dropDirective (dropEvent)="addDropItem()" class="droppable">
+      <li>
+        <app-task-card *ngFor="let task of user.tasks" [task]="task"></app-task-card>
+      </li>
+      <li>
+        <mat-card (click)="openDialog(user.id)">Create task</mat-card>
+      </li>
+    </ul>
+  </div>
 </div>

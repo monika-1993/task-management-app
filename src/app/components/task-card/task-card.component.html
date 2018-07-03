@@ -1,9 +1,14 @@
-<mat-card id="matCard{{task.id}}"   [ngStyle]="color" style="background-color: lightgray" mat-theme-watch [dragDirective]='item' [dragHightlight]="'highlight'" (startDrag)="startDrag()">
+<mat-card id="matCard{{task.id}}" [ngStyle]="color" style="background-color: lightgray" mat-theme-watch [dragDirective]='item'
+  [dragHightlight]="'highlight'" (startDrag)="startDrag()">
   <mat-card-content (click)="openDialog()">
+    <div class="wrap">
     <span>
-      <h4>{{task.title}}</h4>
-      <mat-chip-list>
-        <mat-chip [ngStyle]="chipBackground" >
+      <h4 class="title" >{{task.title}}</h4>
+    </span>
+
+    <span >
+      <mat-chip-list >
+        <mat-chip class="chip" [ngStyle]="chipBackground">
           <mat-select [(ngModel)]=task.status (ngModelChange)="onChangeStatus()">
             <mat-option *ngFor="let status of statuses" [value]="status.code">
               {{status.statusName}}
@@ -12,6 +17,7 @@
         </mat-chip>
       </mat-chip-list>
     </span>
+  </div>
     <p>{{task.description}}</p>
   </mat-card-content>
 </mat-card>

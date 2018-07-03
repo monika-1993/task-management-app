@@ -1,0 +1,30 @@
+mat-card{
+  margin-bottom: 10px;
+  position: relative;
+  width: 200px;
+  margin: 20 px;
+  padding: 5%
+}
+
+.wrap {
+  white-space: nowrap;
+  max-width: 400px;
+}
+.wrap > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.wrap > div:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.chip{
+ width: 50%;
+ margin-left: 15%
+}
+.title{
+  margin-top: 20%;
+}
