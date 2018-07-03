@@ -2,8 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { TaskManagementService } from '../../services/task-management.service';
-import { Task, StatusList } from '../../shared/types';
+import { Task, StatusList, Status } from '../../shared/types';
 import { statusList } from '../../shared/helper';
+import { Task as TaskClass } from '../../factory/tasks';
 
 @Component({
   selector: 'app-dialog-create-task',
@@ -11,12 +12,7 @@ import { statusList } from '../../shared/helper';
   styleUrls: ['./dialog-create-task.component.css']
 })
 export class DialogCreateTaskComponent implements OnInit {
-  public task: Task = {
-    title: '',
-    description: '',
-    status: 1,
-    userAssigned: this.data.userId
-  };
+  public task: Task = TaskClass.createTaskObject('', Status.open, this.data.userId, '');
   public statuses: StatusList[] = [];
 
   constructor(
@@ -29,7 +25,6 @@ export class DialogCreateTaskComponent implements OnInit {
   }
 
   onSave(): void {
-    // this.task.userAssigned = this.data.userId;
     this.taskService.addTask(this.task);
     this.onClose();
   }

@@ -14,12 +14,12 @@
     <div>
       <label>Status</label><br>
       <select [(ngModel)]="task.status">
-        <option *ngFor="let status of statuses" [value]="status.code">{{status.statusName}}</option>
+        <option *ngFor="let status of statuses" [ngValue]="status.code">{{status.statusName}}</option>
       </select>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button (click)="onSave()">Save</button>
+    <button [disabled]="!task.title" (click)="onSave()">Save</button>
     <button (click)="onClose()">Cancel</button>
   </mat-dialog-actions>
 </div>

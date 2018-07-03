@@ -24,10 +24,6 @@ export class UserTaskListComponent implements OnInit {
       data: { userId },
       hasBackdrop: true
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
   public addDropItem() {

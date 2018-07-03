@@ -24,7 +24,7 @@ export const statusList = (): StatusList[] => {
   Object.values(Status).filter(code => typeof code === 'number').forEach(s =>
     statuses.push(
       {
-        'code': s,
+        'code': +s,
         'statusName': getstatusNameFromCode(s)
       }
     ));
