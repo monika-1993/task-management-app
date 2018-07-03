@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DragDropDirectiveModule} from 'angular4-drag-drop';
+import { DragDropDirectiveModule } from 'angular4-drag-drop';
 
 import {
   MatDialogModule, MatInputModule, MatCardModule, MatSelectModule,
@@ -45,7 +45,16 @@ import { TaskManagementService } from './services/task-management.service';
   providers: [TaskManagementService],
   bootstrap: [AppComponent],
   entryComponents: [
-    DialogCreateTaskComponent
+    DialogCreateTaskComponent,
+    DialogViewTaskComponent,
+  ],
+  exports: [
+    MatInputModule,
+    MatCardModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatGridListModule,
+    MatDialogModule
   ]
 })
 export class AppModule { }

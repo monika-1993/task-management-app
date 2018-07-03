@@ -17,7 +17,4 @@ export class TaskBoardComponent implements OnInit {
   ngOnInit() {
     this.users = this.taskService.getUsersWithTasks();
   }
-
-
-
 }

@@ -1,4 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  MatDialogModule,
+  MatChipsModule,
+  MAT_DIALOG_DATA,
+  MatDialogRef
+} from '@angular/material';
 
 import { DialogViewTaskComponent } from './dialog-view-task.component';
 
@@ -8,9 +14,14 @@ describe('DialogViewTaskComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DialogViewTaskComponent ]
+      declarations: [DialogViewTaskComponent],
+      imports: [MatChipsModule, MatDialogModule],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -79,6 +79,7 @@ export class TaskManagementService {
   public addTask = (task: Task) => {
     task.id = Math.floor(Math.random() * 1000);
     tasks.push(task);
+    this.getUsersWithTasks();
   }
 
   public getUsersWithTasks = (): User[] => {

@@ -20,8 +20,13 @@ export class UserTaskListComponent implements OnInit {
 
   public openDialog(userId: number): void {
     const dialogRef = this.dialog.open(DialogCreateTaskComponent, {
-      width: '250px',
-      data: { userId }
+      width: '400px',
+      data: { userId },
+      hasBackdrop: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 

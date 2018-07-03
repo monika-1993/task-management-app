@@ -1,20 +1,25 @@
 <div>
-  <!-- <mat-form-field> -->
+  <h2 mat-dialog-title> Add Task</h2>
+  <mat-dialog-content>
     <div>
-      <input matInput placeholder="Title" [(ngModel)]="task.title">
+      <label>Title</label><br>
+      <input matInput [(ngModel)]="task.title">
     </div>
 
     <div>
-      <input matInput placeholder="Description" [(ngModel)]="task.description">
+      <label>Description</label><br>
+      <input matInput [(ngModel)]="task.description">
     </div>
 
     <div>
-      <select  [(ngModel)]="task.status">
+      <label>Status</label><br>
+      <select [(ngModel)]="task.status">
         <option *ngFor="let status of statuses" [value]="status.code">{{status.statusName}}</option>
       </select>
     </div>
-    <!-- </mat-form-field> -->
+  </mat-dialog-content>
+  <mat-dialog-actions>
     <button (click)="onSave()">Save</button>
-    <button (click)="onClose()" >Cancel</button>
-
+    <button (click)="onClose()">Cancel</button>
+  </mat-dialog-actions>
 </div>

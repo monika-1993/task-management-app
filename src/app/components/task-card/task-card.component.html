@@ -1,9 +1,9 @@
-<mat-card style="background-color: lightgray" mat-theme-watch [dragDirective]='item' [dragHightlight]="'highlight'" (startDrag)="startDrag()">
-  <mat-card-content>
+<mat-card id="matCard{{task.id}}"   [ngStyle]="color" style="background-color: lightgray" mat-theme-watch [dragDirective]='item' [dragHightlight]="'highlight'" (startDrag)="startDrag()">
+  <mat-card-content (click)="openDialog()">
     <span>
       <h4>{{task.title}}</h4>
       <mat-chip-list>
-        <mat-chip style="background-color: #999999">
+        <mat-chip [ngStyle]="chipBackground" >
           <mat-select [(ngModel)]=task.status (ngModelChange)="onChangeStatus()">
             <mat-option *ngFor="let status of statuses" [value]="status.code">
               {{status.statusName}}

@@ -30,3 +30,30 @@ export const statusList = (): StatusList[] => {
     ));
   return statuses;
 };
+
+export const getColorFromStatus = (status: Status = Status.open): string => {
+  let color;
+  switch (status) {
+    case Status.open:
+      color = '#33FCFF';
+      break;
+    case Status.done:
+      color = '#6EFF33';
+      break;
+    case Status.inProcess:
+      color = '#DA33FF';
+      break;
+    case Status.onHold:
+      color = '#FF8A33';
+      break;
+    case Status.schedule:
+      color = '#FFFF33';
+      break;
+    case Status.sent:
+      color = '#8633FF';
+      break;
+    default:
+      color = '#33FCFF';
+  }
+  return color;
+};
